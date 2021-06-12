@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+    <title>Home</title>
+    <h5> <a href='/urlshort'>Shorten - your URL</a></h5>
+    <h5> <a href='/urlcustom'>Shorten - your URL (Custom)</a></h5>
+    <br>
+    {% if all_urls %}
+        {% for url in all_urls %}                    
+        <p>URL: {{ url.url }}</p>
+        <p>Short-URL: <a href="u/{{ url.slug }}">{{ full_url }}u/{{ url.slug }}</a></p>
+        <hr>
+    {% endfor %}
+    {% else %} 
+        <p> No url shortened...</p>
+    {% endif %}
+    
+{% endblock content %}
